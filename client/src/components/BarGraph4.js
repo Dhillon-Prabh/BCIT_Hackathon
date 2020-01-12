@@ -2,29 +2,31 @@ import React, { Component } from 'react';
 //import Header from './components/Header';
 import Chart from "react-apexcharts";
 
-export default class BarGraph1 extends React.Component {
+export default class BarGraph4 extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        options: {
-          chart: {
-            id: "basic-bar"
-          },
-          xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
-          },
-          yaxis: {
-            min: 30
-          }
-        },
-        series: [
-          {
-            name: "series-1",
-            data: [30, 40, 45, 50, 49, 60, 70, 91]
-          }
-        ]
-      };
+        series: [44, 55, 13, 43, 22],
+            options: {
+              chart: {
+                width: 380,
+                type: 'pie',
+              },
+              labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+              responsive: [{
+                breakpoint: 480,
+                options: {
+                  chart: {
+                    width: 200
+                  },
+                  legend: {
+                    position: 'bottom'
+                  }
+                }
+              }]
+            },
+        }
     }
 
   /**
@@ -32,7 +34,7 @@ export default class BarGraph1 extends React.Component {
    */
   componentDidMount() {
     var self = this;
-    fetch("/productivity", {
+    fetch("/truckType", {
       method: "GET"
     }).then(function(response) {
       return response.json();
@@ -42,23 +44,23 @@ export default class BarGraph1 extends React.Component {
       console.log(data);
       var x = [];
       var y = [];
+      var z = [];
+      var count = 0;
       for (var i = 0; i < data.length; i++) {
-        x.push(data[i].SHIFT_DATE);
-        y.push(data[i].PRODUCTIVITY.toFixed(2));
+        y.push(data[i].CountEquip);
+        count += data[i].CountEquip;
+        x.push("Truck Type " + data[i].Equip);
       }
-      console.log(x);
+      for (var i = 0; i < y.length; i++) {
+          z.push(Math.round((y[i] / count) * 100));
+      }
+      console.log(z);
       self.setState(prevState => ({
         options: {
           ...prevState.options,           // copy all other key-value pairs of food object
-          xaxis: {                     // specific object of food object
-            ...prevState.options.xaxis,   // copy all pizza key-value pairs
-            categories: x         // update value of specific key
-          }
+          labels: x
         },
-        series: [{
-          ...prevState.series,
-          data: y
-        }]
+        series: z
       }))
     }).catch(function(err) {
       console.log(err);
@@ -73,8 +75,8 @@ export default class BarGraph1 extends React.Component {
         <Chart
         options={this.state.options}
         series={this.state.series}
-        type="bar"
-        width="1000"
+        type="pie"
+        width="500"
         className="chart1"
       />
     );

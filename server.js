@@ -48,6 +48,20 @@ app.get('/empting', (req, res) => {
   // res.send({ express: 'Hello From Express' });
 });
 
+app.get('/truckType', (req, res) => {
+  var result = "";
+  alasql.promise('SELECT e.EQUIPMENT_TYPE_ID As Equip, COUNT(e.EQUIPMENT_TYPE_ID) As CountEquip FROM XLSX("data/EQUIPMENT.xlsx") e JOIN XLSX("data/Cycle.xlsx") c ON e.EQUIPMENT_ID = c.TRUCK_ID'
+                    + ' GROUP BY e.EQUIPMENT_TYPE_ID ORDER BY e.EQUIPMENT_TYPE_ID ASC')
+      .then(function(resp){
+        console.log(resp); // output depends on mydata.xls
+        res.status(200).json(resp);
+      }).catch(function(err){
+           console.log('Does the file exists? there was an error:', err);
+      });
+  // console.log(result);
+  // res.send({ express: 'Hello From Express' });
+});
+
 app.post('/api/world', (req, res) => {
   console.log(req.body);
   res.send(
