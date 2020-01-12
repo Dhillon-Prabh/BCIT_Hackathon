@@ -11,6 +11,20 @@ export default class BarGraph1 extends React.Component {
           chart: {
             id: "basic-bar"
           },
+          title: {
+            text: "Shift date and Productivity",
+            align: 'center',
+            margin: 10,
+            offsetX: 0,
+            offsetY: 0,
+            floating: false,
+            style: {
+              fontSize:  '20px',
+              color:  '#263238'
+              
+      
+            },
+        },
           xaxis: {
             label: "Shift-date",
             categories: [],
