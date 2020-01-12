@@ -72,6 +72,19 @@ app.get('/truckType', (req, res) => {
   // res.send({ express: 'Hello From Express' });
 });
 
+app.get('/averages', (req, res) => {
+  var result = "";
+  alasql.promise('SELECT AVG(HAULING_TIME), AVG(EMPTY_TIME) FROM XLSX("data/Cycle.xlsx")')
+      .then(function(resp){
+        console.log(resp); // output depends on mydata.xls
+        // res.status(200).json(resp);
+      }).catch(function(err){
+           console.log('Does the file exists? there was an error:', err);
+      });
+  // console.log(result);
+  // res.send({ express: 'Hello From Express' });
+});
+
 app.post('/api/world', (req, res) => {
   console.log(req.body);
   res.send(

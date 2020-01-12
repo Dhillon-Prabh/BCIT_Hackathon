@@ -3,6 +3,7 @@ import BarGraph1 from './components/BarGraph1';
 import BarGraph2 from './components/BarGraph2';
 import BarGraph3 from './components/BarGraph3';
 import BarGraph4 from './components/BarGraph4';
+import BarGraph5 from './components/BarGraph5';
 
 import './App.css';
 
@@ -48,6 +49,7 @@ render() {
             <BarGraph2 />
             <BarGraph3 />
             <BarGraph4 />
+            <BarGraph5 />
             </div>)}
           </div>
           
