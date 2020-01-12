@@ -74,10 +74,10 @@ app.get('/truckType', (req, res) => {
 
 app.get('/averages', (req, res) => {
   var result = "";
-  alasql.promise('SELECT AVG(HAULING_TIME), AVG(EMPTY_TIME) FROM XLSX("data/Cycle.xlsx")')
+  alasql.promise('SELECT AVG(HAULING_TIME) As a, AVG(EMPTY_TIME) As b, AVG(SPOTTING_TIME) As c, AVG(LOADING_TIME) As d, AVG(DUMPING_TIME) As e, AVG(QUEUE_AT_LU) As f, AVG(WAIT_AT_DUMP) As g FROM XLSX("data/Cycle.xlsx")')
       .then(function(resp){
         console.log(resp); // output depends on mydata.xls
-        // res.status(200).json(resp);
+        res.status(200).json(resp);
       }).catch(function(err){
            console.log('Does the file exists? there was an error:', err);
       });

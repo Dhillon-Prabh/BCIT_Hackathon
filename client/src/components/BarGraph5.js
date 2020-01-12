@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import Header from './components/Header';
 import Chart from "react-apexcharts";
 
-export default class BarGraph3 extends React.Component {
+export default class BarGraph5 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -43,7 +43,7 @@ export default class BarGraph3 extends React.Component {
         series: [
           {
             name: "series-1",
-            data: []
+            data: [8.87, 6.44, 0.53, 2.84, 0.75, 1.82, 0.32]
           }
         ]
       };
@@ -53,7 +53,7 @@ export default class BarGraph3 extends React.Component {
    * this is where we grab all the events to show.
    */
   componentDidMount() {
-    var self = this;
+    var that = this;
     fetch("/averages", {
       method: "GET"
     }).then(function(response) {
@@ -63,15 +63,6 @@ export default class BarGraph3 extends React.Component {
       var data = JSON.parse(JSON.stringify(response));
       console.log(data);
       var y = [];
-      for (var i = 0; i < data.length; i++) {
-        y.push(data[i].average);
-      }
-      self.setState(prevState => ({
-        series: [{
-          ...prevState.series,
-          data: y
-        }]
-      }))
     }).catch(function(err) {
       console.log(err);
     });
