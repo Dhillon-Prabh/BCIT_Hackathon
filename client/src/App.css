@@ -37,6 +37,6 @@
   }
 }
 
-.chart {
-  height: 500 !important;
+.fileUpload{
+  transform: translateY(50);
 }
