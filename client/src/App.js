@@ -42,7 +42,7 @@ render() {
                     encType="multipart/form-data"
                     className="">
                     <div className="row">
-                        <input type="file" name="photos" multiple="multiple" className=" fileUpload col-sm-8 btn btn-outline-info border rounded text-white"/>
+                        <input type="file" name="photos" multiple="multiple" className=" fileUpload col-sm-8 btn btn-outline-info border rounded text-secondary"/>
                         <input type='submit' value='Upload!' className=" col-sm-3 ml-auto btn btn-outline-success " />
                     </div>
                 </form>
@@ -55,10 +55,33 @@ render() {
             )}
         {this.state.charts && (
         <div>
-            <BarGraph1 />
-            <BarGraph2 />
-            <BarGraph3 />
-            <BarGraph4 />
+          <div className="row width-95 border rounded mx-auto border bg-light">
+            <div className="col-sm-5">
+
+            </div>
+            <div className="col-sm-7">
+              <BarGraph1 className="w-100"/>
+            </div>
+            <div className="col-sm-6  border-right border-bottom">
+              <BarGraph2 className="col-sm-6 width-90 "/>
+            </div>
+            <div className="col-sm-6 border-bottom">
+              <BarGraph3 className="col-sm-6 width-90 "/>
+            </div>
+            <div className="col-sm-6">
+              <BarGraph4 className="width-90 border-right"/>
+            </div>
+            <div className="col-sm-6">
+
+            </div>
+              
+              
+            
+          </div>
+            <div className="row">
+              
+            </div>
+            
             </div>)}
           </div>
           

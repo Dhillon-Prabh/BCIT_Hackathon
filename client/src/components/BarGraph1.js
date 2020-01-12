@@ -104,7 +104,6 @@ export default class BarGraph1 extends React.Component {
         options={this.state.options}
         series={this.state.series}
         type="line"
-        width="400"
         className="chart1"
         title="Productivity vs Shift-date"
       />
