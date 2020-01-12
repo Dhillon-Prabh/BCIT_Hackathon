@@ -8,6 +8,20 @@ export default class BarGraph3 extends React.Component {
 
     this.state = {
         options: {
+          title: {
+            text: "Trucks Types and their Empty Times ",
+            align: 'center',
+            margin: 10,
+            offsetX: 0,
+            offsetY: 0,
+            floating: false,
+            style: {
+              fontSize:  '20px',
+              color:  '#263238'
+              
+      
+            },
+        },
           chart: {
             id: "basic-bar"
           },
@@ -22,7 +36,7 @@ export default class BarGraph3 extends React.Component {
                 offsetY: 0
               },
             title: {
-                text: "Truck Type",
+                text: "Truck Types",
                 style: {
                     fontSize:  '16px',
                     color:  '#263238'

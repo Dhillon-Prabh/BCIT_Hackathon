@@ -9,6 +9,22 @@ export default class BarGraph4 extends React.Component {
     this.state = {
         series: [],
             options: {
+              title: {
+                text: "Percentage of Useage for Truck Types",
+                align: 'center',
+                margin: 10,
+                offsetX: 0,
+                offsetY: 0,
+                floating: false,
+                style: {
+                  fontSize:  '20px',
+                  color:  '#263238'
+                  
+          
+                },
+            },
+
+              
               chart: {
                 width: 380,
                 type: 'pie',
