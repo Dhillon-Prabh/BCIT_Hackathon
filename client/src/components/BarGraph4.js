@@ -7,13 +7,13 @@ export default class BarGraph4 extends React.Component {
     super(props);
 
     this.state = {
-        series: [44, 55, 13, 43, 22],
+        series: [],
             options: {
               chart: {
                 width: 380,
                 type: 'pie',
               },
-              labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+              labels: [],
               responsive: [{
                 breakpoint: 480,
                 options: {
