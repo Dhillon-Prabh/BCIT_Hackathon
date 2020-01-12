@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
 
 import logo from './logo.svg';
+//import Header from './components/Header';
+import Chart from "react-apexcharts";
 
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      options: {
+        chart: {
+          id: "basic-bar"
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+        }
+      },
+      series: [
+        {
+          name: "series-1",
+          data: [30, 40, 45, 50, 49, 60, 70, 91]
+        }
+      ]
+    };
+  }
+
   state = {
     response: '',
     post: '',
@@ -38,12 +61,31 @@ class App extends Component {
     
     this.setState({ responseToPost: body });
   };
+
+
+
   
 render() {
     return (
       <div className="App">
+
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+
+        <div className="mixed-chart">
+            <Chart
+              options={this.state.options}
+              series={this.state.series}
+              type="bar"
+              width="500"
+            />
+
+              <Chart
+    options={this.state.options}
+    series={this.state.series}
+    type="line"
+    width="500"
+  />
+          </div>
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
