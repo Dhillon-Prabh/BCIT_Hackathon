@@ -17,6 +17,9 @@ class App extends Component {
         },
         xaxis: {
           categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+        },
+        yaxis: {
+          min: 30
         }
       },
       series: [
@@ -35,13 +38,35 @@ class App extends Component {
   };
   
   componentDidMount() {
+    var self = this;
     fetch("/productivity", {
       method: "GET"
     }).then(function(response) {
       return response.json();
     }).then(function(response) {
       console.log("RES:");
-      console.log(JSON.parse(JSON.stringify(response)));
+      var data = JSON.parse(JSON.stringify(response));
+      console.log(data);
+      var x = [];
+      var y = [];
+      for (var i = 0; i < data.length; i++) {
+        x.push(data[i].SHIFT_DATE);
+        y.push(data[i].PRODUCTIVITY);
+      }
+      console.log(x);
+      self.setState(prevState => ({
+        options: {
+          ...prevState.options,           // copy all other key-value pairs of food object
+          xaxis: {                     // specific object of food object
+            ...prevState.options.xaxis,   // copy all pizza key-value pairs
+            categories: x         // update value of specific key
+          }
+        },
+        series: [{
+          ...prevState.series,
+          data: y
+        }]
+      }))
     }).catch(function(err) {
       console.log(err);
     });
@@ -54,48 +79,16 @@ render() {
     return (
       <div className="App">
 
-        <header className="App-header">
-
         <div className="mixed-chart">
             <Chart
               options={this.state.options}
               series={this.state.series}
               type="bar"
-              width="500"
+              width="1000"
+              className="chart1"
             />
-
-              <Chart
-    options={this.state.options}
-    series={this.state.series}
-    type="line"
-    width="500"
-  />
           </div>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <p>{this.state.response}</p>
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <strong>Post to Server:</strong>
-          </p>
-          <input
-            type="text"
-            value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{this.state.responseToPost}</p>
+          
       </div>
     );
   }
