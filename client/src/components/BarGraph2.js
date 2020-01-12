@@ -8,6 +8,11 @@ export default class BarGraph2 extends React.Component {
 
     this.state = {
         options: {
+          plotOptions: {
+            bar: {
+                distributed: true
+            }
+          },
           title: {
             text: "Truck types and their Hauling Time",
             align: 'center',
@@ -22,6 +27,7 @@ export default class BarGraph2 extends React.Component {
       
             },
         },
+        colors: ["#0099ff", "#0099ff", "#0099ff", "#0099ff", "#ff0000"],
           chart: {
             id: "basic-bar"
           },

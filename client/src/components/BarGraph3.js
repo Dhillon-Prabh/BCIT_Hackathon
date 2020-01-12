@@ -8,6 +8,11 @@ export default class BarGraph3 extends React.Component {
 
     this.state = {
         options: {
+          plotOptions: {
+            bar: {
+                distributed: true
+            }
+          },
           title: {
             text: "Trucks Types and their Empty Times ",
             align: 'center',
@@ -22,6 +27,7 @@ export default class BarGraph3 extends React.Component {
       
             },
         },
+        colors: ["#0099ff", "#0099ff", "#0099ff", "#0099ff", "#ff0000"],
           chart: {
             id: "basic-bar"
           },

@@ -61,13 +61,13 @@ render() {
             
           <div className="row width-95 border rounded mx-auto border bg-light">
             <div className="col-sm-5">
-            <div className="round" id="avgHaul">
-              <p id="avgHaulNum" className="para">8.87 min</p>
+            <div className="round p-2 font-weight-bold" id="avgHaul">
+              <p id="avgHaulNum" className="para mt-4">8.87 min</p>
               <p className="para">Average Haul Time</p>
             </div>
 
-            <div className="round"  id="avgEmpty">
-              <p id="avgEmptyNum">6.44 min</p>
+            <div className="round p-2 font-weight-bold"  id="avgEmpty">
+              <p id="avgEmptyNum" className="mt-4">6.44 min</p>
               <p className="para">Average Empty Time</p>
             </div>
             </div>
