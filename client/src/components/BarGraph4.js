@@ -92,7 +92,6 @@ export default class BarGraph4 extends React.Component {
         options={this.state.options}
         series={this.state.series}
         type="pie"
-        width="500"
         className="chart1"
       />
     );

@@ -28,40 +28,69 @@ handleClick = () => {
 render() {
     return (
       <div className="App">
+        <div className="h-100 bg-info mb-4 p-2">
+          <h3 className="text-light font-weight-bold">Truck Analysis</h3>
+        </div>
 
-        <div className="mixed-chart">
-          {this.state.upload && (
-          <form ref='uploadForm' 
-            id='uploadForm'
-            action='http://localhost:5000/upload-files' 
-            method='post' 
-            encType="multipart/form-data">
-          <input type="file" name="photos" multiple="multiple" className="fileUpload"/>
-          <input type='submit' value='Upload!' className="Button" />
-        </form>)}
+        <div className="mixed-chart mx-auto">
+                {this.state.upload && (
+          <div className="row card border-info shadow-sm w-75 mx-auto p-5">
+            <div className="card-body text-info">
+                  <form ref='uploadForm' 
+                    id='uploadForm' 
+                    action='http://localhost:5000/upload-files' 
+                    method='post' 
+                    encType="multipart/form-data"
+                    className="">
+                    <div className="row">
+                        <input type="file" name="photos" multiple="multiple" className=" fileUpload col-sm-8 btn btn-outline-info border rounded text-secondary"/>
+                        <input type='submit' value='Upload!' className=" col-sm-3 ml-auto btn btn-outline-success " />
+                    </div>
+                </form>
+            </div>  
+          </div>)}
+          
         
         {this.state.analyze && (
-              <input type="button" value="Analyze!" onClick={this.handleClick}/>
+              <input type="button" className="mt-5 btn btn-warning shadow-sm border rounded-pill w-50 p-3 font-weight-bold" value="Analyze!" onClick={this.handleClick}/>
             )}
         {this.state.charts && (
         <div>
         
-          <div className="round" id="avgHaul">
-         
-            <p id="avgHaulNum" className="para">8.87 min</p>
-            <p className="para">Average Haul Time</p>
+          
+            
+          <div className="row width-95 border rounded mx-auto border bg-light">
+            <div className="col-sm-5">
+            <div className="round" id="avgHaul">
+              <p id="avgHaulNum" className="para">8.87 min</p>
+              <p className="para">Average Haul Time</p>
             </div>
 
             <div className="round"  id="avgEmpty">
-            <p id="avgEmptyNum">6.44 min</p>
-            <p className="para">Average Empty Time</p>
+              <p id="avgEmptyNum">6.44 min</p>
+              <p className="para">Average Empty Time</p>
             </div>
+            </div>
+            <div className="col-sm-7">
+              <BarGraph1 className="w-100"/>
+            </div>
+            <div className="col-sm-6  border-right border-bottom">
+              <BarGraph2 className="col-sm-6 width-90 "/>
+            </div>
+            <div className="col-sm-6 border-bottom">
+              <BarGraph3 className="col-sm-6 width-90 "/>
+            </div>
+            <div className="col-sm-6">
+              <BarGraph4 className="width-90 border-right"/>
+            </div>
+            <div className="col-sm-6">
+              <BarGraph5 className="width-90 border-right"/>
+            </div>
+              
+              
             
-            <BarGraph1 />
-            <BarGraph2 />
-            <BarGraph3 />
-            <BarGraph4 />
-            <BarGraph5 />
+          </div>
+            
             </div>)}
           </div>
           

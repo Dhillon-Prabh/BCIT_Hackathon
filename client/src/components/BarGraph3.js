@@ -117,7 +117,6 @@ export default class BarGraph3 extends React.Component {
         options={this.state.options}
         series={this.state.series}
         type="bar"
-        width="500"
         className="chart1"
       />
     );
