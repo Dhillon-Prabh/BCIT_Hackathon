@@ -52,7 +52,7 @@ export default class BarGraph4 extends React.Component {
         x.push("Truck Type " + data[i].Equip);
       }
       for (var i = 0; i < y.length; i++) {
-          z.push(Math.round((y[i] / count) * 100));
+          z.push((y[i] / count) * 100);
       }
       console.log(z);
       self.setState(prevState => ({

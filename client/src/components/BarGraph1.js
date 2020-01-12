@@ -12,10 +12,40 @@ export default class BarGraph1 extends React.Component {
             id: "basic-bar"
           },
           xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+            label: "Shift-date",
+            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+            axisBorder: {
+              show: true,
+              color: '#78909C',
+              height: 1,
+              width: '100%',
+              offsetX: 0,
+              offsetY: 0
+            },
+            title: {
+              text: "Shift-date",
+              style: {
+                  fontSize:  '16px',
+                  color:  '#263238'
+                },
+            }
           },
           yaxis: {
-            min: 30
+            min: 30,
+            axisBorder: {
+              show: true,
+              color: '#78909C',
+              height: 1,
+              offsetX: 0,
+              offsetY: 0
+            },
+            title: {
+              text: "Productivity",
+              style: {
+                  fontSize:  '16px',
+                  color:  '#263238'
+                },
+            }
           }
         },
         series: [
@@ -73,9 +103,10 @@ export default class BarGraph1 extends React.Component {
         <Chart
         options={this.state.options}
         series={this.state.series}
-        type="bar"
-        width="1000"
+        type="line"
+        width="800"
         className="chart1"
+        title="Productivity vs Shift-date"
       />
     );
   }

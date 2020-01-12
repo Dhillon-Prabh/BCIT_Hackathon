@@ -12,8 +12,40 @@ export default class BarGraph3 extends React.Component {
             id: "basic-bar"
           },
           xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
-          }
+            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+            axisBorder: {
+                show: true,
+                color: '#78909C',
+                height: 1,
+                width: '100%',
+                offsetX: 0,
+                offsetY: 0
+              },
+            title: {
+                text: "Truck Type",
+                style: {
+                    fontSize:  '16px',
+                    color:  '#263238'
+                  },
+              }
+            },
+            yaxis: {
+                axisBorder: {
+                    show: true,
+                    color: '#78909C',
+                    height: 1,
+                    offsetX: 0,
+                    offsetY: 0
+                  },
+                  title: {
+                    text: "Empty-Time",
+                    style: {
+                        fontSize:  '16px',
+                        color:  '#263238'
+                      },
+                  }
+            }
+            
         },
         series: [
           {
@@ -40,7 +72,7 @@ export default class BarGraph3 extends React.Component {
       var x = [];
       var y = [];
       for (var i = 0; i < data.length; i++) {
-        y.push(data[i].Emp);
+        y.push(data[i].Emp.toFixed(2));
         x.push(data[i].Equip);
       }
       console.log(x);
