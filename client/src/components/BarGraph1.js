@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import Header from './components/Header';
+
 import Chart from "react-apexcharts";
 
 export default class BarGraph1 extends React.Component {

@@ -37,6 +37,33 @@
   background: red;
 }
 
+.round{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid white 5px;
+  font-size: 20px;
+  display:inline-block;
+  margin: 15px;
+  line-height: 0.2;
+  box-shadow: 0 8px 6px -6px black;
+  
+
+}
+#avgHaul{
+  background-color: lightskyblue;
+}
+
+#avgEmpty{
+  background-color: lightgreen;
+}
+
+#avgHaulNum, #avgEmptyNum {
+  font-size: 44px;
+  line-height: 1;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

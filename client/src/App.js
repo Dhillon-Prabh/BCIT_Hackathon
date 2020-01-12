@@ -44,14 +44,16 @@ render() {
             )}
         {this.state.charts && (
         <div>
-          <div class="kpi" id="avgHaul">
-            <p>8.87 min</p>
-            <p>Average Haul Time</p>
+        
+          <div className="round" id="avgHaul">
+         
+            <p id="avgHaulNum" className="para">8.87 min</p>
+            <p className="para">Average Haul Time</p>
             </div>
 
-            <div class="kpi" id="avgEmpty">
-            <p>6.44min</p>
-            <p>Average Empty Time</p>
+            <div className="round"  id="avgEmpty">
+            <p id="avgEmptyNum">6.44 min</p>
+            <p className="para">Average Empty Time</p>
             </div>
             
             <BarGraph1 />
