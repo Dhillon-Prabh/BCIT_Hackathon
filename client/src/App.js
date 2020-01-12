@@ -80,11 +80,11 @@ render() {
             <div className="col-sm-6 border-bottom">
               <BarGraph3 className="col-sm-6 width-90 "/>
             </div>
-            <div className="col-sm-6">
-              <BarGraph4 className="width-90 border-right"/>
+            <div className="col-sm-6 border-right">
+              <BarGraph4 className="width-90 "/>
             </div>
-            <div className="col-sm-6">
-              <BarGraph5 className="width-90 border-right"/>
+            <div className="col-sm-6 border-left">
+              <BarGraph5 className="width-90"/>
             </div>
               
               

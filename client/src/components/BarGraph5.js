@@ -8,6 +8,20 @@ export default class BarGraph5 extends React.Component {
 
     this.state = {
         options: {
+            title: {
+                text: "Averages of each process in the cycle",
+                align: 'center',
+                margin: 10,
+                offsetX: 0,
+                offsetY: 0,
+                floating: false,
+                style: {
+                  fontSize:  '20px',
+                  color:  '#263238'
+                  
+          
+                },
+            },
           chart: {
             id: "basic-bar"
           },
@@ -77,7 +91,6 @@ export default class BarGraph5 extends React.Component {
         options={this.state.options}
         series={this.state.series}
         type="bar"
-        width="500"
         className="chart1"
       />
     );
