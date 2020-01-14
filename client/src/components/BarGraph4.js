@@ -10,7 +10,7 @@ export default class BarGraph4 extends React.Component {
         series: [],
             options: {
               title: {
-                text: "Percentage of Useage for Truck Types",
+                text: "Percentage of Use for Truck Types",
                 align: 'center',
                 margin: 10,
                 offsetX: 0,
