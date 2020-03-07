@@ -6,3 +6,4 @@ Tool asks for three files to be uploaded and shows to the user the efficiency of
 
 Tech stack: React, Nodejs
 
+![Image 1](images/img1.png)
